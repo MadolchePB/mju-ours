@@ -10,14 +10,6 @@ const dbOptions = {
 
 export const conn = mysql.createConnection(dbOptions)
 
-conn.connect(err => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('连接成功')
-  }
-})
-
 module.exports = function query(strSql, arr) {
   return new Promise((resolve, reject) => {
     conn.query(strSql, arr, (err, results) => {
